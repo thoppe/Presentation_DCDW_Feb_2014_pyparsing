@@ -3,7 +3,7 @@ author = "Travis Hoppe"
 target = "DCDW_pyparsing.markdown"
 
 # May need to run twice on first pull to copy styles
-args = --html_title $(title) --html_author $(author)
+args = --html_title $(title) --html_author $(author) --prettify
 all:
 	python easy_pres.py $(target) --output index.html $(args)
 
