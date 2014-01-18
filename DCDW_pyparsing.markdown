@@ -4,8 +4,7 @@
 ### _helping data get its sexy back_
 
 *[Travis Hoppe](http://thoppe.github.io/)*
-
-*[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)*
+_[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)_
 
 ====
 
