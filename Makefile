@@ -10,6 +10,9 @@ all:
 edit:
 	emacs $(target) &
 
+commit:
+	@-make push
+
 push:
 	git status
 	git add index.html
