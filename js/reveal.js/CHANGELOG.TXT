@@ -1,0 +1,495 @@
+info about available themes and how to change theme
+Merge pull request #282 from callmephilip/feature/plugin/remotes/none-on-mobile
+entities auto fix added
+disable remotes plugin on mobile
+fix issue with auto-advance (closes #273)
+Merge pull request #270 from lawilliams/master
+Fixing spelling mistake.
+remove left/right margin from images, tweak pdf print styles
+add rtl option to readme
+right align text in ul/ol when rtl is active (#166)
+fix issue with click event target on overview slides
+fix inconsistency with vertical centering when using page transition
+word break rules and hyphens where possible for titles
+improve rendering accuracy of overview
+use touch start events for controls on touch devices
+Merge branch 'master' of github.com:hakimel/reveal.js
+slide method now accepts fragment index argument #228
+readme tweaks
+use system font when rtl is enabled, exclude pre and code blocks from rtl (#166)
+adjust rtl implementation (#166)
+experimental rtl support (#166)
+enforce max width/height on iframes (#244), disabled mouse wheel navigation by default
+null check for notes in markdown parser (#253)
+avoid stripping out notes when parsing markdown (closes #253)
+Merge branch 'master' of github.com:hakimel/reveal.js
+fix incorrect navigation in notes window (closes #241)
+Merge pull request #254 from harriha/bug-with-theme-switching
+Fix bug with switching to night theme
+Merge pull request #245 from dandv/patch-1
+Merge branch 'fix-grunt-contrib-mincss-version' of https://github.com/technicalpickles/reveal.js
+fix minor issue in pdf print sheet
+null check parentNode in case slide has been detached
+Merge branch 'fix-callback-with-shared-dir' of https://github.com/hashar/reveal.js
+disable hiding of address bar on android, caused vertical centering issues
+Document vertical centering breaking backcompat
+Use grunt-contrib-mincss ~0.3.1
+Fix callback calling when using from a parent directory
+note about #226 in readme
+add touch based remote controlled plugin
+add note about nested fragments
+fix typos
+Merge branch 'master' of github.com:hakimel/reveal.js
+add grunt.js build file (closes #235)
+Merge pull request #234 from dandv/patch-1
+its->it's in README.md
+fixes issue where italic fonts disappeared when printing to pdf (closes #230)
+add night theme
+fix issue with dependency loader callbacks
+ensure fragments are visible in print styles, fix page-break error in paper print sheet
+cosmetical tweaks to postmessage plugin
+Merge branch 'master' of https://github.com/sithmel/reveal.js
+workaround markdown quote issue (#223)
+tweak ie8 fallback
+updated transition styles to work with vertical centering (#70)
+fix vertical transition for vertically centered slides, vertical centering is now on by default (#70)
+correction to vertical centering and overview mode, clean up of vertical slide storage
+remember last visited vertical slide (closes #225)
+enable up/down arrows to step through fragments (closes #233)
+count vertical slides towards the progress bar (closes #150)
+revert to display none from visibility hidden to correct vertical centering
+allow multiple control elements, document usage of global controls (#184, #204)
+write named links, rather than h/v index, to hash when available (closes #224)
+additional media query plus vertical queries to support smaller screens (closes #232)
+overview mode documentation
+corrections to vertical centering (#70), added to docs, upgrade to 2.2
+rough support for vertical centering #70
+working on #227
+added a simple postmessage plugin
+Describing how to toggle "overview mode"
+fixed issue with dependency loader failing when there were 0 async scripts (#214)
+fix rolling links glitch in firefox
+content now re-renders after alt+click zoom (closes #195)
+include theme background in printed pdfs (#217), fix empty white pages in regular print (#215)
+Merge branch 'master' of github.com:hakimel/reveal.js
+document server-side speaker notes
+remove console.log
+updated markdown references in notes plugin
+update syntax highlight after editing (#210), move markdown and highlight scripts from lib to plugin
+only call slide() if route is available in navigate methods (closes #213)
+escape quotes in css using unicode hex
+merge in support for stepped fragments in notes server
+merge in support for stepped fragments in notes window
+force 'ready' to fire one cycle later (#208)
+fix keyboard navigation in ie9 (closes #202)
+Apply latest change to the minified version
+Merge branch 'refs/heads/fix-fragments-in-speakernotes' into fragments-in-notes-server
+Delete functionality to control presentation from notes window
+Change source from from reveal.js back to reveal.min.js
+Apply latest change to the minified version
+Delete console output.
+Make the fragments visible in speaker notes
+Add notes to the fragment slide for testing purposes.
+Cherry picking from branch fix-fragments-in-speakernotes
+use borders to generate control arrows (closes #137)
+Updated new CSS triangle controls to use theme colors.
+Updated Controls to use CSS triangles rather than unicode triangles (fix Android support)
+use outer color of radial gradient as solid fallback
+remove traling whitespace (#197)
+clean up trailing whitespace (closes #197)
+new postMessage-based notes plugin, moved node-based notes to notes-server (#190)
+Merge branch 'master' of github.com:hakimel/reveal.js
+explain fragments in readme
+fix overview when zoom transition is active (#196)
+add support for fragment styles (#192)
+Merge branch 'master' of github.com:hakimel/reveal.js
+progress bar can now be clicked to navigate (closes #181)
+Merge pull request #194 from mischah/feature-fullscreen
+modularize themes and convert them to sass (closes #191)
+Update README.md
+Change source from from reveal.js back to reveal.min.js
+Apply latest change to the minified version
+Update renamed API method
+Update README.md
+Rename API method from Reveal.previousFragment() to Reveal.prevFragment()
+Oops. Delete console output.
+Renaming key within fragmentData
+get 'fragmentdata' and react by showing/hiding the corresponding fragments
+Add event listener 'fragmentshown' and 'fragmenthidden'
+Broadcast fragmentdata
+Add missing semicolon
+Fix indentation
+Add nextFragment and previousFragment to the API
+Change source from reveal.min.js to reveal.js for testing purposes
+remove image dir (#187)
+fix issue in browsers that don't support classList
+Replacing speakernotes plugin with a simple postMessage system
+add 'ready' event (#182)
+Adding images directory to staticDir so we can search images
+Merge branch 'master' of github.com:hakimel/reveal.js
+adjust themes so that font definitions are at top, apply fonts on .reveal instead of body
+Merge pull request #183 from dandv/patch-4
+Document zooming feature
+take out demo page js
+new shorter api method names (closes #178), restructured and cleaned up core js
+merge full screen key binding (f)
+Merge branch 'master' of github.com:hakimel/reveal.js
+enable pinch to zoom interaction if overview is disabled (#175)
+Change source from from reveal.js back to reveal.min.js
+Apply latest change to the minified version
+Change source from reveal.min.js to reveal.js for testing purposes
+Add fullscreen mode
+Merge pull request #173 from Hlynsson/patch-1
+roll back attr name change, just lowercase (#170)
+ability to define autoSlide duration per slide
+Merge branch 'master' of https://github.com/functino/reveal.js
+add zoom transition
+tweaks to page and cube transitions, change sky theme text-highlight color
+default config value for theme is null
+fixed link for browser support
+Make it possible to customize autoSlide for each slide
+fix conflict with theme set in query and theme specified in head
+merge in relative theme/transition links
+Merge branch 'patch-3' of https://github.com/dandv/reveal.js
+Merge pull request #168 from dandv/patch-2
+Links to transitions & themes stay in presentation
+Typo fix
+slight tweak to zoom integration
+Merge branch 'master' of github.com:hakimel/reveal.js
+zoom.js integration via alt+click
+update re markdown
+wrap markdown in script text/template to fix parsing errors (closes #146 #155 #162)
+new paused mode feature (closes #144), controls and progress DOM elements are no longer required in HTML
+root reset styles at .reveal (#163)
+remove duplicate padding/margin reset on html & body
+prevent touchmove default action on android (#143)
+Merge branch 'serif-theme' of https://github.com/maxogden/reveal.js
+add override flag to overview toggle, code cleanup
+add 'none'-transition (closes #159, #160)
+add link to serif theme in default presentation
+simple serif font theme
+new slide
+facility for css shader transitions, add css shader based tile-transition
+main.css > reveal.css
+minified version of showdown
+max-height and overflow for code blocks (closes #16)
+slightly larger preview of next slide in speaker notes (closes #147)
+rollback change in showndown, stop highlight.js's html entity escape #523
+disable html entity escapes in showdown (cloes #153 & #152)
+Changes to make PDF output match the browser view more closely   font-size: 18pt; instead of fount-size: 22pt;   remove the "a" tag from def that forces font size, otherwise anchors in various contexts, e.g., headings, etc., will cause ugly rendering due to mismatched font size.    specify font size for "pre" tags so that code listings more closely match browser rendering
+code comments, remove needless nodelist > array conversion
+2.0 is stable, update to 2.1
+remove sharing code for sample presentation
+merge markdown in notes
+Merge branch 'markdown-in-notes' of https://github.com/technicalpickles/reveal.js
+add option for disabling overview mode (closes #145)
+instructions for print pdf include
+copy tweaks
+Merge branch 'master' of github.com:hakimel/reveal.js
+fix mixed spaces & tabs, remove unused feature test, add missing ;
+Merge pull request #141 from rmurphey/node_0.8_update
+package.json for node 0.8+
+Merge branch 'master' of github.com:hakimel/reveal.js
+open slide notes window automatically #135
+Merge branch 'open-notes-in-new-window' of https://github.com/technicalpickles/reveal.js
+readme update
+Merge branch 'master' of github.com:hakimel/reveal.js
+add rvl.io to readme and template slide
+Add documentation for markdown speaker notes
+Support markdown in speaker notes
+Open notes in new window, instead of printing to console
+Update README.md
+add pledgie button
+Merge pull request #132 from nmec/master
+Update Socket.IO URL in readme.
+Fix Socket.IO URL
+Merge pull request #131 from Sinetheta/master
+changed theme file swap to be relative to theme file instead of slide-deck
+correction to code style in sky theme, adjusted transition demo page
+prevent same theme from loading repeatedly
+tweaks to the simple theme
+add theme config option, add sky theme, fix line-height of <small>
+Update README.md
+support for named links (closes #55)
+fix bug that caused vertical stacks to shift unexpectedly in overview (closes #122)
+margin tweak to keep list delimiters inside of slide box when text is long (#116)
+consistent use of tabs rather than spaces in css (closes #121)
+define line height for paragraphs
+readme tweaks
+Merge branch 'patch-6' of https://github.com/dandv/reveal.js
+Merge branch 'patch-4' of https://github.com/dandv/reveal.js
+Document optional libraries
+Merge pull request #115 from dandv/patch-5
+Merge pull request #110 from OwenVersteeg/patch-8
+Ensure images are bound within the section
+Increase line-height for links to allow for descenders
+made page validate
+Merge pull request #106 from OwenVersteeg/patch-7
+document dependency loading
+rewrote initialization code for clarity and brevity (#105)
+Merge pull request #109 from dandv/patch-3
+1.5 > 2.0 (#105)
+Update index.html
+Merge pull request #108 from dandv/patch-2
+Merge pull request #107 from dandv/patch-1
+Update css/main.css
+Update README.md
+added simple theme
+added appropriate selection color
+remove theme from init options example
+themes are now available as separate css files under css/theme/, old theme option in config is no longer supported (closes #104)
+readme typo
+fix broken link
+big rewrite of readme
+remove duplicate fonts, tidy up font names (#103)
+Merge branch 'patch-6' of https://github.com/StereotypicalApps/reveal.js
+use minified version of js
+added the actual files
+added more font-face support
+fix order of options extend and listener binding (closes #102)
+Update README.md
+Merge pull request #101 from StereotypicalApps/patch-5
+Merge pull request #100 from StereotypicalApps/patch-4
+improved accessibility
+added small fallback for non-font-face browsers
+fix error in slide markup
+fix overview slide positioning bug (closes #89)
+instructions for pdf export (#92)
+more pdf-export tweaks, added slide describing the feature (#92)
+slight tweak to pdf export css (#92)
+support for PDF export in chrome (closes #92)
+less horizontal padding for slides
+remove hard line breaks now that slide width is relative
+fix overflow glitch on vertical slides in mobile safari
+use mq to reduce font size for low resultions, max limit on width for slides set to 900px (closes #49)
+Merge branch 'master' of github.com:hakimel/reveal.js
+Merge pull request #93 from StereotypicalApps/patch-1
+Merge branch 'master' of github.com:hakimel/reveal.js
+Merge pull request #97 from davidbanham/master
+Include speaker notes plugin after reveal.js
+correct copy year
+disable 3d links in ie, reorder script loading in index for readability (closes #95)
+fix disappearing 3d hover in chrome
+ie8 support (closes #96)
+add eot font for ie
+Oops, made the page a little too responsive
+Made the slideshow responsive
+added example
+update markdown code example to correctly reflect line breaks
+modified data-markdown to support markdown indented with tabs
+self-execute data-markdown
+markdown instructions
+added slide announcing markdown support (#15)
+support for data-markdown (#15)
+move theme styles at bottom of main.css, change background of page transition to be transparent
+fixes bug where the .present class remained on previous slide (closes #88)
+adds new api methods (getCurrentSlide, getPreviousSlide, getIndices) closes #73
+added example from @pamelafox
+readme code marking
+1.4 is now stable, increment master to 1.5
+clean up initialization, conditionally load classList polyfill prior to reveal.js
+'keyboard' config option for disabling keyboard navigation (closes #84)
+null check progress DOM element even if it's configured to be on
+sub/superscript styles (closes #82)
+readme update
+Merge pull request #83 from basecode/patch-slidechange
+Remove assignment to `indexv` and `indexh` to trigger 'onslidechange' at startup and onhashchange.
+Merge pull request #80 from ob1/patch-2
+Another instance of: id="reveal" => class="reveal"
+remove background from default anchor hover style
+added autoSlide option (#59), clear out list of options in index.html's initialize call
+Merge pull request #79 from ob1/patch-1
+Update README to reflect "Main #reveal container is now selected via a class instead of ID"
+add beige theme, move theme class from .reveal to document element, use log instead of alert to demonstrate custom events
+changenote re code sample font size
+added new example to readme
+larger font for code samples (closes #60)
+slidenotes becomes speakernotes to match wording in readme
+folder structure description in readme
+fix incorrect directory reference
+adjustments to initial node messages #57
+separate loading of classList.js as its not tied to execution of highlight.js
+refactored folder structure, added /plugins which is initially only used by #57
+use head.js to script load everything, fixes bug with inclusion of notes server js #57
+Merge branch 'master' of github.com:hakimel/reveal.js into notes
+Merge pull request #75 from tansengming/css_charset
+adds charset declaration in main.css
+small tweaks to notes page style
+small tweaks to notes page style
+simplify query match
+remove unused copy of notes client
+readme updates
+conditional loading of socket.io and the notes client js based on window host
+update instructions printed on server start
+convert spaces to tabs to match project style
+move notes client code into lib
+tweaks to slidenotes
+adjust whitespace of notes code to match rest of project
+include underscore as a dependency for npm
+/lib restructuring
+restructured /lib, moved /assets/fonts to /lib/fonts
+Merge branch 'presenter_notes_server' of https://github.com/rmurphey/reveal.js into notes
+Merge pull request #72 from rhudea/fix-fragmenthidden
+Send the correct element for fragmenthidden events
+Merge pull request #65 from bleathem/patch-2
+enable controls by default
+connect to whatever server we're on
+fix socket id
+fix path to socket.io
+have notes page only listen to one socket
+add mustache dependency
+broadcast socket id as part of slidedata
+use current host/port
+Specify position for .reveal.linear sections. fixes #64
+Merge pull request #63 from bleathem/patch-1
+Changed #reveal to .reveal in print.css
+Merge pull request #58 from danielmitd/controls
+add default table styles (closes #62)
+Merge pull request #61 from rmurphey/navigatePrev_navigateNext
+update readme
+expose navigatePrev, navigateNext
+adapt coding style
+use config
+controls are not necessary
+removing errant author info
+taking a stab at a presenter notes server
+syntax highlighting in readme examples
+include references to previous/current sldie DOM elements in slidechange event
+prevent duplicate slidechange from firing after hash change (closes #54)
+added example
+Merge pull request #53 from isellsoap/master
+simplified handling of nested lists
+change add .reveal class in index (closes #51)
+added new example (closes #50)
+readme update
+api methods for adding/removing all event listeners (#48)
+changed selection of main container from #reveal to .reveal (closes #46)
+credit in readme
+version 1.3 is stable, upgrade to 1.4
+comments, tweaks and a new slide highlighting mobile support
+support for swipe and pinch gestures #48
+minified!
+added some public access methods
+dispatch events when visible fragment changes ('fragmentshown', 'fragmenthidden') closes #44
+support more variations of nested lists (closes #47)
+added new examples, linked all contributor names to github pages
+updated min.js to match
+fixed bug in swipe gesture interacting with links.
+added left, right, up, down gestures to change slides. moved window edge slide triggers to a touchend event to prevent interference of gestures
+space and return keys can be used to exit the overview mode
+adjust where page background is applied
+added example
+adjust end key nav to last slide
+Merge pull request #41 from frockenstein/master
+use home and end key
+Merge branch 'master' of github.com:hakimel/reveal.js
+more explicit list styles (closes #38)
+added example
+fix controls z-index in ff
+hide address bar in mobile browsers, add apple web app meta
+show all fragments during print
+print styles (closes #19)
+'slidechanged' event, added Reveal.addEventListener/Reveal.removeEventListener api methods
+ie9 fixes, including new classList polyfill
+minor style or wording tweaks
+Merge pull request #36 from commadelimited/master
+Adding example for custom event binding.
+new example
+added support for looped presentations
+merge keyboard shortcut changes
+ignore metaKey modifier too
+p for previous, n for next
+Add new key mappings for navigation.
+(c) year
+significantly smaller js file header, added minified js
+Merge pull request #32 from philipbjorge/master
+added new example
+Overview now shows hidden fragments.
+new example
+added new example
+more detailed usage instructions including docs on new state feature
+upgrade to v 1.3
+better example of state usage
+new example
+change back state event scope, document level makes more sense as that's where the state class is applied
+adjustments to custom state events
+Firing custom event based on data-state name. This allows developers to trigger custom javascript code on a per slide basis.
+now capturing data-state on slides and lifting it to document element classList when slide is open
+merge prev/next navigation pull request with modifications
+Implemented correct Previous and Next navigation for both mouse scroll and wireless presenter.
+classList polyfill included for ie9
+delay hash changes to avoid transition lag in chrome and enable history by default (closes #22)
+don't overwrite existing classes on slides (closes #23)
+Merge pull request #21 from archive/master
+added support for wireless presenter
+Merge pull request #20 from Fil/master
+Do not fail on other kinds of hashes
+new example
+new examples
+default hash updates to false, see http://code.google.com/p/chromium/issues/detail?id=62820
+fix reference to old 'hasClass' method
+new example
+tweaked mouse wheel navigation
+Merge pull request #13 from naugtur/master
+removed history comment in js
+added usage instructions to readme
+rolled back to classList, promoting poyfill in readme
+broaden selector for img:hover (fixes #11)
+don't apply linkify effect to anchors containing images
+add new example
+Added support for smart scrolling through slides. Scrolling events are throttled to prevent going too far
+removed dependency on classList (#9)
+Merge branch 'master' of github.com:hakimel/reveal.js
+moved inline base64 images to aws
+scrolling fallback mode for IE < 9
+slightly reduced size of progress bar
+prevent default on space press
+Added example
+history on by default
+browser history updates can now be disabled via config
+Merge branch 'master' of github.com:hakimel/reveal.js
+updated copy in slides, added one that explains transitions
+updated readme
+adjusted background color of page/box themes
+major, non backwards compatible, restructuring of DOM tree
+changed id of 'main' container to 'reveal'
+packed v1.1, upgraded to 1.2
+readme history update
+added new transitions (box/page) and a ui theme (neon)
+fix padding and duplicate background on vertical slides in overview
+fix clicks on vertical slides in overview
+skip fragments when in overview
+added experimental overview mode (press SPACE)
+fallback on 2d transform transitions via feature detect
+slides three or more steps away from current are now hidden
+only apply background gradient to <html>
+added '-ms' prefixed properties
+progress bar is now a div and uses the same transition + easing as slides (fixes #6)
+Added examples
+updated readme
+hide progress by default
+added optional presentation progress bar
+replaced google logo with a unicorn
+comments & typo correction
+slide with code is now editable, escaped unicode arrows
+Merge pull request #5 from matthewlein/master
+for contenteditable elements, don't let arrow keys work
+fragments now work in vertical slides (fixes #4)
+disabled overflow on body (fixes #2)
+fix broken link
+fix vertical slide transition and hit areas of rolling links
+cleanup & comments
+readme update
+Updated readme
+renamed to reveal.js, many new features, and upgraded to v1.0
+added version comment
+Merge branch 'master' of github.com:hakimel/CSS-3D-Slideshow
+fixed issue with links on touch devices (tap wasn't working)
+adjusted shadow on headers
+readme update
+Merge pull request #1 from altryne/master
+firefox links now clikable
+updated readme
+removed tracking code
+added font license
+initial commit
