@@ -1,6 +1,11 @@
+target = "DCDW_pyparsing.markdown"
+
 # May need to run twice on first pull to copy styles
 all:
-	python easy_pres.py DCDW_pyparsing.markdown --output index.html
+	python easy_pres.py $(target) --output index.html
+
+edit:
+	emacs $(target) &
 
 push:
 	git status
@@ -8,7 +13,7 @@ push:
 	git add css
 	git add js
 	git add *.markdown
-	git commit -a -m "Webpage commit"
+	git commit -a
 	git push
 
 pull:

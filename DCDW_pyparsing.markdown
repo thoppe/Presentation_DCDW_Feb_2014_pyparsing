@@ -3,8 +3,9 @@
 # PYPARSING
 ### _helping data get its sexy back_
 
-Travis Hoppe
-DC *Data Wranglers*
+*[Travis Hoppe](http://thoppe.github.io/)*
+
+*[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)*
 
 ====
 
