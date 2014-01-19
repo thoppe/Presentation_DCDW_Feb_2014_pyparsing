@@ -41,6 +41,7 @@
     display: inline;
 }
 
+/*
 .reveal .large_image {
     top:0;
     bottom:0;
@@ -63,6 +64,7 @@
     text-transform: uppercase;
     padding-top: 10px;
 } 
+*/
 
 .reveal .transparent_image  {
     border: none;
