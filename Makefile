@@ -2,10 +2,13 @@ title  = "DCDW: Pyparsing"
 author = "Travis Hoppe"
 target = "DCDW_pyparsing.markdown"
 
+python_exec    = python
+easy_pres_exec = ~/hg-repos/personal/markdown_latex_easypres/easy_pres.py
+
 # May need to run twice on first pull to copy styles
 args = --html_title $(title) --html_author $(author)
 all:
-	python easy_pres.py $(target) --output index.html $(args)
+	$(python_exec) $(easy_pres_exec) $(target) --output index.html $(args)
 
 edit:
 	emacs $(target) &
