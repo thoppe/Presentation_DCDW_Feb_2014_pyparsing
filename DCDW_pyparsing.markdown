@@ -80,8 +80,7 @@ Validating RFC822 email addresses (_have fun!_)
 
 Pure python drop-in parsing module with an expressive syntax. 
 Allows you to write/maintain the grammar, _abstracted_ from the parser.
-
-!(book.jpg)<<height:500px>>
+!(book.jpg)[http://shop.oreilly.com/product/9780596514235.do]<<height:300px>>
 
 
 ====
