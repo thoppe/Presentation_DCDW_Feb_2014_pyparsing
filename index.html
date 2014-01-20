@@ -130,7 +130,7 @@ Validating RFC822 email addresses (<em>have fun!</em>)</p>
 <h1>Pyarsing</h1></p>
 <br>
 <p>
-Pure python drop-in parsing module with an expressive syntax.<br>Allows you to write/maintain the grammar, <em>abstracted</em> from the parser.</p>
+Pure python drop-in (free) parsing module with an expressive syntax.<br>Allows you to write/maintain the grammar, <em>abstracted</em> from the parser.</p>
 <a href=http://shop.oreilly.com/product/9780596514235.do><img class="" src="book.jpg" height="300px"></a>
 </section>
 </section><section class="vertical-stack">
@@ -144,6 +144,46 @@ Pure python drop-in parsing module with an expressive syntax.<br>Allows you to w
 <p>
 <h3>Hard:</h3>HTML, recursive descent parser (mathematical expression, ...), recursive expressions (pdf's, meta-font, LISP)</p>
 </section>
+</section><section class="vertical-stack">
+<section class="vertical-slide">
+<p>
+Examples</p>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide">
+<p>
+<h3><a href="code/hello_world.py">hello_world.py</a></h3></p>
+<br>
+<pre><code>from pyparsing import *
+s = "Hello world!"
+word = Word(alphas)
+grammar = word
+print grammar.parseString(s)
+            </code></pre>
+<p>
+Only captures the first word <code>hello</code>.<br><br><div class="fragment"><br>x</p>
+<br>
+<pre><code>word_list = OneOrMore(word)
+grammar   = word_list
+print grammar.parseString(s)</code></pre>
+<br>
+<p>
+Now gives us <code>[hello, world]</code></p>
+<br>
+<br>
+<p>
+Only captures the first word <code>hello</code>.<br></div></p>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide">
+<p>
+<h3><a href="code/records.py">records.py</a></h3></p>
+</section>
+</section><section class="vertical-stack">
+<section class="vertical-slide">
+<p>
+<h3><a href="code/recursive.py">recursive.py</a></h3></p>
+</section>
 </section>
     </div></div>
 
@@ -154,7 +194,7 @@ Pure python drop-in parsing module with an expressive syntax.<br>Allows you to w
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-      autoSlide: 0, mouseWheel: true, center: true, overview: true, transition: "default", maxScale: 1.0, controls: true, height: 700, width: 960, rtl: false, rollingLinks: false, keyboard: true, progress: true, minScale: 0.2, margin: 0.1, loop: false, history: true, 
+      overview: true, height: 700, keyboard: true, touch: true, hideAddressBar: true, rollingLinks: false, mouseWheel: false, controls: true, width: 960, viewDistance: 3, rtl: false, progress: true, fragments: true, autoSlide: 0, autoSlideStoppable: true, backgroundtransition: "default", transitionSpeed: "default", center: true, embedded: true, transition: "default", maxScale: 1.2, minScale: 0.2, previewLinks: false, margin: 0.05, loop: false, history: true, 
       
       theme: Reveal.getQueryHash().theme, 
       // available themes are in reveal.js/css/theme
@@ -174,9 +214,7 @@ Pure python drop-in parsing module with an expressive syntax.<br>Allows you to w
 
 { src: 'js/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: 
   function() { return !!document.body.classList; } },
-
-{ src: 'js/reveal.js/plugin/notes/notes.js', async: true, condition: 
-  function() { return !!document.body.classList; } } ]
+ ]
 
       });
     </script>

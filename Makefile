@@ -21,6 +21,7 @@ push:
 	git add index.html
 	git add css
 	git add js
+	git add code
 	git add *.markdown
 	git commit -a
 	git push

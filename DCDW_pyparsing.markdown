@@ -92,6 +92,33 @@ Address, phone numbers, quoted strings
 ### Hard:
 HTML, recursive descent parser (mathematical expression, ...), recursive expressions (pdf's, meta-font, LISP)
 
+====
+Examples
+====
+### [hello_world.py](code/hello_world.py)
+
+    from pyparsing import *
+    s = "Hello world!"
+    word = Word(alphas)
+    grammar = word
+    print grammar.parseString(s)
+		
+Only captures the first word `hello`.
+====+
+x
+
+    word_list = OneOrMore(word)
+    grammar   = word_list
+    print grammar.parseString(s)
+
+Now gives us `[hello, world]`
 
 
+Only captures the first word `hello`.
+
+
+====
+### [records.py](code/records.py)
+====
+### [recursive.py](code/recursive.py)
 	
