@@ -78,7 +78,7 @@ Validating RFC822 email addresses (_have fun!_)
 ====
 # Pyarsing
 
-Pure python drop-in parsing module with an expressive syntax. 
+Pure python drop-in (free) parsing module with an expressive syntax. 
 Allows you to write/maintain the grammar, _abstracted_ from the parser.
 !(book.jpg)[http://shop.oreilly.com/product/9780596514235.do]<<height:300px>>
 
