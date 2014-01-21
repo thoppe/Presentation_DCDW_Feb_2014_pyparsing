@@ -43,7 +43,7 @@
 <h1>PYPARSING</h1><h3><em>helping data get its sexy back</em></h3></p>
 <br>
 <p>
-<strong><a href="http://thoppe.github.io/">Travis Hoppe</a></strong><br><em><a href="http://www.meetup.com/Data-Wranglers-DC/">DC Data Wranglers</a></em></p>
+<strong><a href="http://thoppe.github.io/">Travis Hoppe</a></strong><br><em><a href="http://www.meetup.com/Data-Wranglers-DC/">DC Data Wranglers</a></em> / <a href="https://github.com/thoppe/DCDW_pres_feb_2014">(slide source)</a></p>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
@@ -70,7 +70,7 @@ Write the <strong>grammar</strong> not the <strong>parser</strong>!</p>
 It's easier to construct/maintain<br>a mini-lanuage - really!</p>
 <br>
 <p>
-Traditional utilites include <code>regex, lex, yacc</code></p>
+Traditional utilites: <code>regex, lex, yacc</code></p>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
@@ -88,21 +88,25 @@ Traditional utilites include <code>regex, lex, yacc</code></p>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
 <p>
-<h3>This is not NLP (natural lanuage processing)</h3><em>A computer scientist and a linguist walk into a bar...</em><br>This is a <strong>context-free</strong> grammar.</p>
-<br>
-<br>
+<h3>This is not NLP (natural lanuage processing)</h3><em>A computer scientist and a linguist walk into a bar...</em><br>This is a <strong>context-free</strong> grammar.<br><br><div class="fragment"><br></p>
 <br>
 <p>
-<h3>One morning I shot an elephant in my pajamas.</h3><h3>How he got into my pajamas I'll never know.</h3></p>
+<h3>One morning I shot an elephant in my pajamas.</h3></div><div class="fragment"><h3>How he got into my pajamas I'll never know.</h3></div></p>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
 <p>
 <h1>Backus-Naur Form</h1></p>
 <br>
-<br>
 <p>
 "<em>... a notation for a context-free grammar, used to describe the syntax of languages used in computing, such as computer programming languages, document formats, instruction sets and communication protocols</em>" - Wikipedia</p>
+<br>
+<pre><code class=python><postal-address> ::= <name-part> <street-address> <zip-part>
+<name-part>      ::= <personal-part> <last-name> <opt-suffix-part> <EOL> 
+                   | <personal-part> <name-part>
+<personal-part>  ::= <first-name> | <initial> "." 
+<street-address> ::= <house-num> <street-name> <opt-apt-num> <EOL>
+<zip-part> ::= <town-name> "," <state-code> <ZIP-code> <EOL></code></pre>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
@@ -115,7 +119,7 @@ Traditional utilites include <code>regex, lex, yacc</code></p>
 <p>
 Validating a phone number (<em>reasonable regex</em>)</p>
 <br>
-<pre><code class="python">"^\(*\d{3}\)*( |-)*\d{3}( |-)*\d{4}$"</code></pre>
+<pre><code class=python>"^\(*\d{3}\)*( |-)*\d{3}( |-)*\d{4}$"</code></pre>
 <br>
 <p>
 Validating RFC822 email addresses (<em>have fun!</em>)</p>
@@ -129,7 +133,7 @@ Validating RFC822 email addresses (<em>have fun!</em>)</p>
 <h1>Pyarsing</h1></p>
 <br>
 <p>
-Pure python drop-in (free) parsing module with an expressive syntax.<br>Allows you to write/maintain the grammar, <em>abstracted</em> from the parser.</p>
+Pure python drop-in (free) parsing module with an expressive syntax. Allows you to write/maintain the grammar, <em>abstracted</em> from the parser.</p>
 <a href=http://shop.oreilly.com/product/9780596514235.do><img class="" src="book.jpg" height="300px"></a>
 </section>
 </section><section class="vertical-stack">
@@ -146,14 +150,9 @@ Pure python drop-in (free) parsing module with an expressive syntax.<br>Allows y
 </section><section class="vertical-stack">
 <section class="vertical-slide">
 <p>
-Examples</p>
-</section>
-</section><section class="vertical-stack">
-<section class="vertical-slide">
-<p>
 <h3><a href="code/hello_world.py">hello_world.py</a></h3></p>
 <br>
-<pre><code class="python">from pyparsing import *
+<pre><code class=python>from pyparsing import *
 s = "Hello world!"
 word = Word(alphas)
 grammar = word
@@ -161,17 +160,17 @@ print grammar.parseString(s)
 # Only grabs "Hello"</code></pre>
 <p>
 <div class="fragment"></p>
-<pre><code class="python">word_list = OneOrMore(word)
+<pre><code class=python>word_list = OneOrMore(word)
 grammar   = word_list
 # Now we get a list ["Hello", "World"]</code></pre>
 <p>
 </div><div class="fragment"></p>
-<pre><code class="python">end_punc = oneOf(". ! ?")
+<pre><code class=python>end_punc = oneOf(". ! ?")
 grammar  = word_list + end_punc
 # Grabs the end symbol ["Hello", "World", "!"]</code></pre>
 <p>
 </div><div class="fragment"></p>
-<pre><code class="python">grammar = Group(word_list) + end_punc.suppress()
+<pre><code class=python>grammar = Group(word_list) + end_punc.suppress()
 # Group and suppress [["Hello", "World"]]</code></pre>
 <p>
 </div></p>
@@ -179,20 +178,90 @@ grammar  = word_list + end_punc
 <p>
 <h3><a href="code/hello_world.py">hello_world.py</a></h3></p>
 <br>
-<pre><code class="python">s2 = "Hello sir, how are you today?"
+<pre><code class=python>s2 = "Hello sir, how are you today?"
 phrase  = Group(word_list) + (Literal(",") | end_punc).suppress()
 grammar = OneOrMore(phrase)
 print grammar.parseString(s2)</code></pre>
 <p>
 <div class="fragment"></p>
-<pre><code class="python"># [['Hello', 'sir'], ['how', 'are', 'you', 'today']]</code></pre>
+<pre><code class=python># [['Hello', 'sir'], ['how', 'are', 'you', 'today']]</code></pre>
 <p>
 </div></p>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
 <p>
-<h3><a href="code/records.py">records.py</a></h3></p>
+<h3><a href="code/records.py">records.py</a></h3>Objective: Take the raw data with missing values</p>
+<pre><code class=python>sue
+Travis Hoppe 31
+Marky Mark 42
+    
+James earl JONES 
+Rudolfo Alphonzo Raffaelo Pierre di Valentina D'Antonguolla 31</code></pre>
+<p>
+<div class="fragment">And transform it into a nicely type-casted JSON:</p>
+<pre><code class=python>[{ "age": null, "name": "Sue"}, 
+ { "age": 31,   "name": "Travis Hoppe"}, 
+ { "age": 42,   "name": "Marky Mark"}, 
+ { "age": null, "name": "James Earl Jones"}, 
+ { "age": 31, "name": "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla" }]</code></pre>
+<p>
+</div></p>
+</section><section class="vertical-slide">
+<p>
+<h3><a href="code/records.py">records.py</a></h3>The data guides the grammar:</p>
+<pre><code class=python>sue
+Travis Hoppe 31
+Marky Mark 42
+
+James earl JONES 
+Rudolfo Alphonzo Raffaelo Pierre di Valentina D'Antonguolla 31</code></pre>
+<p>
+and self-documents the process for maintenance</p>
+<pre><code class=python>ParserElement.setDefaultWhitespaceChars(' \t')
+
+name      = Word(alphas + "'")
+full_name = Group(OneOrMore(name))("name")
+age = Word(nums)("age")
+EOL = LineEnd().suppress()
+
+record = full_name + Optional(age) + EOL
+record_list = OneOrMore(record | EOL)</code></pre>
+</section><section class="vertical-slide">
+<p>
+<h3><a href="code/records.py">records.py</a></h3>Our first attempt gives:</p>
+<pre><code class=python>print record_list.parseString(data)
+# [['sue', 'Travis', 'Hoppe'], '31', ['Marky', 'Mark'], '42', ['James', 'earl', 'JONES', 'Rudolfo', 'Alphonzo', 'Raffaelo', 'Pierre', 'di', 'Valentina', "D'Antonguolla"], '31']</code></pre>
+<br>
+<p>
+Let's format the results:</p>
+<pre><code class=python>def clean_record(tokens):
+  name = ' '.join(tokens["name"]).title()
+  if "age" in tokens:
+      age = int(tokens["age"])
+  else:
+      age = None
+  return {'name':name, 'age':age}
+
+record.setParseAction(clean_record)</code></pre>
+</section><section class="vertical-slide">
+<p>
+<h3><a href="code/records.py">records.py</a></h3>Proper type casting, string formating and dictionary formating!</p>
+<pre><code class=python>sol = record_list.parseString(data)
+print sol           
+# [{'age': 31, 'name': 'Sue Travis Hoppe'}, {'age': 42, 'name': 'Marky Mark'}, {'age': 31, 'name': "James Earl Jones Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla"}]</code></pre>
+<br>
+<p>
+Now pretty-print the results in JSON:</p>
+<pre><code class=python>import json
+js = json.dumps(sol.asList(),indent=2)
+print js
+
+# [{"age": null, "name": "Sue"}, 
+# { "age": 31,   "name": "Travis Hoppe"}, 
+# { "age": 42,   "name": "Marky Mark"}, 
+# { "age": null, "name": "James Earl Jones"}, 
+# { "age": 31, "name": "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla" }]</code></pre>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">

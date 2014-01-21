@@ -4,7 +4,7 @@
 ### _helping data get its sexy back_
 
 *[Travis Hoppe](http://thoppe.github.io/)*
-_[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)_
+_[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)_ / [(slide source)](https://github.com/thoppe/DCDW_pres_feb_2014)
 
 ====
 
@@ -27,7 +27,7 @@ Write the *grammar* not the *parser*!
 It's easier to construct/maintain 
 a mini-lanuage - really!
 
-Traditional utilites include `regex, lex, yacc`
+Traditional utilites: `regex, lex, yacc`
 
 ====
 ## Lifecycle of code
@@ -44,17 +44,25 @@ _Which is more important?_
 ### This is not NLP (natural lanuage processing)
 _A computer scientist and a linguist walk into a bar..._
 This is a *context-free* grammar.
-
-
+<br>
+====+
+<br>
 
 ### One morning I shot an elephant in my pajamas. 
+====+
 ### How he got into my pajamas I'll never know.
 
 ====
 # Backus-Naur Form
 
-
 "_... a notation for a context-free grammar, used to describe the syntax of languages used in computing, such as computer programming languages, document formats, instruction sets and communication protocols_" - Wikipedia
+ 
+    <postal-address> ::= <name-part> <street-address> <zip-part>
+    <name-part>      ::= <personal-part> <last-name> <opt-suffix-part> <EOL> 
+                       | <personal-part> <name-part>
+    <personal-part>  ::= <first-name> | <initial> "." 
+    <street-address> ::= <house-num> <street-name> <opt-apt-num> <EOL>
+    <zip-part> ::= <town-name> "," <state-code> <ZIP-code> <EOL>
 
 ====
 
@@ -77,8 +85,7 @@ Validating RFC822 email addresses (_have fun!_)
 ====
 # Pyarsing
 
-Pure python drop-in (free) parsing module with an expressive syntax. 
-Allows you to write/maintain the grammar, _abstracted_ from the parser.
+Pure python drop-in (free) parsing module with an expressive syntax. Allows you to write/maintain the grammar, _abstracted_ from the parser.
 !(book.jpg)[http://shop.oreilly.com/product/9780596514235.do]<<height:300px>>
 
 
@@ -91,8 +98,6 @@ Address, phone numbers, quoted strings
 ### Hard:
 HTML, recursive descent parser (mathematical expression, ...), recursive expressions (pdf's, meta-font, LISP)
 
-====
-Examples
 ====
 ### [hello_world.py](code/hello_world.py)
 
@@ -135,6 +140,79 @@ Examples
 	
 ====
 ### [records.py](code/records.py)
+Objective: Take the raw data with missing values
+    sue
+    Travis Hoppe 31
+    Marky Mark 42
+    	
+    James earl JONES 
+    Rudolfo Alphonzo Raffaelo Pierre di Valentina D'Antonguolla 31
+
+====+
+
+And transform it into a nicely type-casted JSON:
+    [{ "age": null, "name": "Sue"}, 
+     { "age": 31,   "name": "Travis Hoppe"}, 
+     { "age": 42,   "name": "Marky Mark"}, 
+     { "age": null, "name": "James Earl Jones"}, 
+     { "age": 31, "name": "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla" }]
+
+====*
+### [records.py](code/records.py)
+The data guides the grammar:
+    sue
+    Travis Hoppe 31
+    Marky Mark 42
+    
+    James earl JONES 
+    Rudolfo Alphonzo Raffaelo Pierre di Valentina D'Antonguolla 31
+and self-documents the process for maintenance
+    ParserElement.setDefaultWhitespaceChars(' \t')
+    
+    name      = Word(alphas + "'")
+    full_name = Group(OneOrMore(name))("name")
+    age = Word(nums)("age")
+    EOL = LineEnd().suppress()
+    
+    record = full_name + Optional(age) + EOL
+    record_list = OneOrMore(record | EOL)
+
+====*
+### [records.py](code/records.py)
+Our first attempt gives:
+    print record_list.parseString(data)
+    # [['sue', 'Travis', 'Hoppe'], '31', ['Marky', 'Mark'], '42', ['James', 'earl', 'JONES', 'Rudolfo', 'Alphonzo', 'Raffaelo', 'Pierre', 'di', 'Valentina', "D'Antonguolla"], '31']
+
+Let's format the results:
+    def clean_record(tokens):
+      name = ' '.join(tokens["name"]).title()
+      if "age" in tokens:
+          age = int(tokens["age"])
+      else:
+          age = None
+      return {'name':name, 'age':age}
+    
+    record.setParseAction(clean_record)
+	  
+====*
+### [records.py](code/records.py) 
+Proper type casting, string formating and dictionary formating!
+    sol = record_list.parseString(data)
+    print sol    	
+    # [{'age': 31, 'name': 'Sue Travis Hoppe'}, {'age': 42, 'name': 'Marky Mark'}, {'age': 31, 'name': "James Earl Jones Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla"}]
+
+Now pretty-print the results in JSON:
+    import json
+    js = json.dumps(sol.asList(),indent=2)
+    print js
+    
+    # [{"age": null, "name": "Sue"}, 
+    # { "age": 31,   "name": "Travis Hoppe"}, 
+    # { "age": 42,   "name": "Marky Mark"}, 
+    # { "age": null, "name": "James Earl Jones"}, 
+    # { "age": 31, "name": "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla" }]
+
+
 ====
 ### [recursive.py](code/recursive.py)
 	
