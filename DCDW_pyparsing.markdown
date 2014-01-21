@@ -103,19 +103,11 @@ Examples
     grammar = word
     print grammar.parseString(s)
 		
-Only captures the first word `hello`.
 ====+
-x
 
     word_list = OneOrMore(word)
     grammar   = word_list
     print grammar.parseString(s)
-
-Now gives us `[hello, world]`
-
-
-Only captures the first word `hello`.
-
 
 ====
 ### [records.py](code/records.py)

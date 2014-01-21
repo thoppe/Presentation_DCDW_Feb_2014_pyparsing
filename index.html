@@ -158,21 +158,14 @@ Examples</p>
 s = "Hello world!"
 word = Word(alphas)
 grammar = word
-print grammar.parseString(s)
-            </code></pre>
+print grammar.parseString(s)</code></pre>
 <p>
-Only captures the first word <code>hello</code>.<br><br><div class="fragment"><br>x</p>
-<br>
+<div class="fragment"></p>
 <pre><code>word_list = OneOrMore(word)
 grammar   = word_list
 print grammar.parseString(s)</code></pre>
-<br>
 <p>
-Now gives us <code>[hello, world]</code></p>
-<br>
-<br>
-<p>
-Only captures the first word <code>hello</code>.<br></div></p>
+</div></p>
 </section>
 </section><section class="vertical-stack">
 <section class="vertical-slide">
