@@ -1,3 +1,7 @@
 # Temp files
+
 *~
 \#*
+
+# Render files
+.render_cache/*

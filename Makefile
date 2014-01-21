@@ -1,6 +1,6 @@
 title  = "DCDW: Pyparsing"
 author = "Travis Hoppe"
-target = "DCDW_pyparsing.markdown"
+target = "DCDW_pyparsing.md"
 
 python_exec    = python
 easy_pres_exec = ~/hg-repos/personal/markdown_latex_easypres/easy_pres.py
@@ -22,7 +22,7 @@ push:
 	git add css
 	git add js
 	git add code
-	git add *.markdown
+	git add *.md
 	git commit -a
 	git push
 
