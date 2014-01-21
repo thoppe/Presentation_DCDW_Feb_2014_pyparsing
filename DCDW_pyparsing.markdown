@@ -4,7 +4,7 @@
 ### _helping data get its sexy back_
 
 *[Travis Hoppe](http://thoppe.github.io/)*
-_[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)_ / [(slide source)](https://github.com/thoppe/DCDW_pres_feb_2014)
+_[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)_ / [(deck source)](https://github.com/thoppe/DCDW_pres_feb_2014)
 
 ====
 
@@ -215,4 +215,78 @@ Now pretty-print the results in JSON:
 
 ====
 ### [recursive.py](code/recursive.py)
+	raw ='''(defun factorial (x)
+	(if (zerop x) 1
+	(* x (factorial (- x 1)))))'''
+
+====+
+
+	from pyparsing import *
+	alpha  = Word(alphas)
+	operation = oneOf("+ * - /")
+	number = Word(nums)
+	argument = alpha | number | operation
 	
+====+
+The expression is a recursive grammar!
+	exp = Forward()
+	LP, RP = Literal("(").suppress(), Literal(")").suppress()
+	exp << (argument | Group(LP + ZeroOrMore(exp) + RP))
+	
+	print exp.parseString(raw)	
+	# [['defun', 'factorial', ['x'], ['if', ['zerop', 'x'], '1', ['*', 'x', ['factorial', ['-', 'x', '1']]]]]]
+
+====
+### [prefix_calc.py](code/prefix_calc.py)
+Evalute the string as a mathematical expression:
+	s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"
+
+====+
+	from pyparsing import *
+	expr = Forward()
+	number    = Word(nums)("value")
+	operation = oneOf("+ * ^ -")
+	LP, RP = Literal("(").suppress(), Literal(")").suppress()
+	nest = (LP + expr + RP)
+	expr << Group(  (number | nest) 
+                  + (number | nest) 
+                  + operation)
+	
+    print expr.parseString(s)
+	#[[[[[['3', '4', '+'], '9', '*'], ['8', '9', '+'], '*'], '1050', '-'], '2', '^']]
+
+====*
+### [prefix_calc.py](code/prefix_calc.py)
+Convert numbers into integers
+	number.setParseAction(lambda x:int(x["value"])) 
+
+Apply a function depending on the symbol
+	actions = {"+":lambda x,y:x+y,
+        "*":lambda x,y:x*y,
+		"-":lambda x,y:x-y,
+        "^":lambda x,y:x**y}
+	
+	def apply(tokens):
+		a,b,op = tokens[0]
+        val = actions[op](a,b)
+        print "Evaluating {} {} {} = {}".format(a,op,b,val)
+        return actions[op](a,b)
+	
+    expr.setParseAction(apply)
+
+====*
+### [prefix_calc.py](code/prefix_calc.py)
+	s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"
+
+Parse results, take out of last group
+	result = expr.parseString(s)[0]
+	print "Final value:", result
+
+Print statements help debug (use [logging](http://docs.python.org/2/library/logging.html) module!)
+	Evaluating 3 + 4 = 7
+	Evaluating 7 * 9 = 63
+	Evaluating 8 + 9 = 17
+	Evaluating 63 * 17 = 1071
+	Evaluating 1071 - 1050 = 21
+	Evaluating 21 ^ 2 = 441
+	Final value: 441
