@@ -18,7 +18,7 @@ _according to a formal gramar_
 + Extracting data from a webpage
 + Sanitizing input from untrusted sources
 
-====
+====*
 
 ## don't do it!
 
@@ -29,7 +29,18 @@ a mini-lanuage - really!
 
 Traditional utilites: `regex, lex, yacc`
 
+====*
+
+## Example problems
+
+### Easy:
+Address, phone numbers, quoted strings
+
+### Hard:
+HTML, recursive descent parser (mathematical expressions, pdf's, meta-font, LISP, ...)
+
 ====
+
 ## Lifecycle of code
 
 + Time to code
@@ -39,7 +50,7 @@ Traditional utilites: `regex, lex, yacc`
 
 _Which is more important?_
 
-====
+====*
 
 ### This is not NLP (natural lanuage processing)
 _A computer scientist and a linguist walk into a bar..._
@@ -52,7 +63,7 @@ This is a *context-free* grammar.
 ====+
 ### How he got into my pajamas I'll never know.
 
-====
+====*
 # Backus-Naur Form
 
 "_... a notation for a context-free grammar, used to describe the syntax of languages used in computing, such as computer programming languages, document formats, instruction sets and communication protocols_" - Wikipedia
@@ -87,16 +98,6 @@ Validating RFC822 email addresses (_have fun!_)
 
 Pure python drop-in (free) parsing module with an expressive syntax. Allows you to write/maintain the grammar, _abstracted_ from the parser.
 !(book.jpg)[http://shop.oreilly.com/product/9780596514235.do]<<height:300px>>
-
-
-====
-## Example problems
-
-### Easy:
-Address, phone numbers, quoted strings
-
-### Hard:
-HTML, recursive descent parser (mathematical expression, ...), recursive expressions (pdf's, meta-font, LISP)
 
 ====
 ### [hello_world.py](code/hello_world.py)
