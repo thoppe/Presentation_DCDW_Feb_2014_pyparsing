@@ -16,7 +16,7 @@ _according to a formal gramar_
 
 + Analying a log file
 + Extracting data from a webpage
-+ Sanatzing input from untrusted sources
++ Sanitizing input from untrusted sources
 
 ====
 
