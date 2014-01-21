@@ -107,9 +107,32 @@ Examples
 
     word_list = OneOrMore(word)
     grammar   = word_list
-    print grammar.parseString(s)
-    # Now we get the list ["Hello", "World"]
+    # Now we get a list ["Hello", "World"]
+	
+====+
 
+    end_punc = oneOf(". ! ?")
+    grammar  = word_list + end_punc
+    # Grabs the end symbol ["Hello", "World", "!"]
+	
+====+
+
+    grammar = Group(word_list) + end_punc.suppress()
+    # Group and suppress [["Hello", "World"]]
+
+====*
+
+### [hello_world.py](code/hello_world.py)
+
+    s2 = "Hello sir, how are you today?"
+    phrase  = Group(word_list) + (Literal(",") | end_punc).suppress()
+    grammar = OneOrMore(phrase)
+    print grammar.parseString(s2)
+
+====+
+
+    # [['Hello', 'sir'], ['how', 'are', 'you', 'today']]
+	
 ====
 ### [records.py](code/records.py)
 ====

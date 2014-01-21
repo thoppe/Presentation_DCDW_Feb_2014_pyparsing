@@ -31,12 +31,7 @@ def clean_record(tokens):
 
     return {'name':name, 'age':age}
 
-#def clean_list(tokens):
-#    print "HI", tokens
-    
-
 record.setParseAction(clean_record)
-#record_list.setParseAction(clean_list)
 
 # Now try with the parse actions
 sol = record_list.parseString(data)
