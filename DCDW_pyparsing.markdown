@@ -27,7 +27,6 @@ Write the *grammar* not the *parser*!
 It's easier to construct/maintain 
 a mini-lanuage - really!
 
-
 Traditional utilites include `regex, lex, yacc`
 
 ====
@@ -102,12 +101,14 @@ Examples
     word = Word(alphas)
     grammar = word
     print grammar.parseString(s)
+    # Only grabs "Hello"
 		
 ====+
 
     word_list = OneOrMore(word)
     grammar   = word_list
     print grammar.parseString(s)
+    # Now we get the list ["Hello", "World"]
 
 ====
 ### [records.py](code/records.py)

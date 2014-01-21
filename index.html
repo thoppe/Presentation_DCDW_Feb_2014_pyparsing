@@ -69,7 +69,6 @@ Write the <strong>grammar</strong> not the <strong>parser</strong>!</p>
 <p>
 It's easier to construct/maintain<br>a mini-lanuage - really!</p>
 <br>
-<br>
 <p>
 Traditional utilites include <code>regex, lex, yacc</code></p>
 </section>
@@ -116,7 +115,7 @@ Traditional utilites include <code>regex, lex, yacc</code></p>
 <p>
 Validating a phone number (<em>reasonable regex</em>)</p>
 <br>
-<pre><code>"^\(*\d{3}\)*( |-)*\d{3}( |-)*\d{4}$"</code></pre>
+<pre><code class="python">"^\(*\d{3}\)*( |-)*\d{3}( |-)*\d{4}$"</code></pre>
 <br>
 <p>
 Validating RFC822 email addresses (<em>have fun!</em>)</p>
@@ -154,16 +153,18 @@ Examples</p>
 <p>
 <h3><a href="code/hello_world.py">hello_world.py</a></h3></p>
 <br>
-<pre><code>from pyparsing import *
+<pre><code class="python">from pyparsing import *
 s = "Hello world!"
 word = Word(alphas)
 grammar = word
-print grammar.parseString(s)</code></pre>
+print grammar.parseString(s)
+# Only grabs "Hello"</code></pre>
 <p>
 <div class="fragment"></p>
-<pre><code>word_list = OneOrMore(word)
+<pre><code class="python">word_list = OneOrMore(word)
 grammar   = word_list
-print grammar.parseString(s)</code></pre>
+print grammar.parseString(s)
+# Now we get the list ["Hello", "World"]</code></pre>
 <p>
 </div></p>
 </section>
