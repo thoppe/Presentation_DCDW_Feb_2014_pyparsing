@@ -1,4 +1,4 @@
-# Simple prefix parser with integers
+# Simple postfix parser with integers
 s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"
 
 from pyparsing import *

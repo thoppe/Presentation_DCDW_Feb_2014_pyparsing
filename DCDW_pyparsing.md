@@ -238,7 +238,7 @@ The expression is a recursive grammar!
 	# [['defun', 'factorial', ['x'], ['if', ['zerop', 'x'], '1', ['*', 'x', ['factorial', ['-', 'x', '1']]]]]]
 
 ====
-### [prefix_calc.py](code/prefix_calc.py)
+### [postfix_calc.py](code/postfix_calc.py)
 Evalute the string as a mathematical expression
 	s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"
 
@@ -257,7 +257,7 @@ Evalute the string as a mathematical expression
 	#[[[[[['3', '4', '+'], '9', '*'], ['8', '9', '+'], '*'], '1050', '-'], '2', '^']]
 
 ====*
-### [prefix_calc.py](code/prefix_calc.py)
+### [postfix_calc.py](code/postfix_calc.py)
 Convert numbers into integers
 	number.setParseAction(lambda x:int(x["value"])) 
 
@@ -276,7 +276,7 @@ Apply a function depending on the symbol
     expr.setParseAction(apply)
 
 ====*
-### [prefix_calc.py](code/prefix_calc.py)
+### [postfix_calc.py](code/postfix_calc.py)
 	s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"
 
 Parse results, remove from last group
