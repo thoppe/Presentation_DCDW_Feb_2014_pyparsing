@@ -20,6 +20,11 @@
     stroke: currentColor;
 }
 
+/* Special alignment for inline equations */
+.reveal p svg.latexSVG {
+    vertical-align: top;
+}
+
 
 .lowercase {
     text-transform: lowercase;
