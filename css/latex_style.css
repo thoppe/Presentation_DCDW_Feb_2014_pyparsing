@@ -9,9 +9,9 @@
 .reveal svg.latexSVG {
     margin:0px;
     background-color:transparent; 
+    vertical-align: top;
     border:none;
     box-shadow:none;
-    vertical-align:middle;
     height:1.0em;
     margin-right:.1em;
     margin-left :.1em;
@@ -20,10 +20,12 @@
     stroke: currentColor;
 }
 
-/* Special alignment for inline equations */
-.reveal p svg.latexSVG {
-    vertical-align: top;
+/* Special alignment for large equations, disabled for now */
+/*
+.reveal h1 .latexSVG  {
+    vertical-align:middle;
 }
+*/
 
 
 .lowercase {
