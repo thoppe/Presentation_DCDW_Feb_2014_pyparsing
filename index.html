@@ -18,17 +18,17 @@
 				   maximum-scale=1.0, 
 				   user-scalable=no">
 
-    <link rel="stylesheet" href="js/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="js/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="js/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
     <!-- For LaTeX formating highlighting -->
     <link rel="stylesheet" href="css/latex_style.css">
 
     <!--[if lt IE 9]>
-	<script src="js/reveal.js/lib/js/html5shiv.js"></script>
+	<script src="reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
   </head>
 
@@ -37,7 +37,7 @@
     <div class="reveal"><div class="slides">
 	<section class="vertical-stack">
 <section class="vertical-slide" >
-<link rel="stylesheet" href="js/reveal.js/css/theme/beige.css" id="theme">
+<link rel="stylesheet" href="css/beige.css" id="theme">
 <br>
 <p>
 <h1>PYPARSING</h1><h3><em>helping data get its sexy back</em></h3></p>
@@ -146,16 +146,19 @@ grammar = word
 print grammar.parseString(s)
 # Only grabs "Hello"</code></pre>
 <p>
-<div class="fragment">word_list = OneOrMore(word)</p>
-<pre><code class=python>grammar   = word_list
+<div class="fragment"></p>
+<pre><code class=python>word_list = OneOrMore(word)
+grammar   = word_list
 # Now we get a list ["Hello", "World"]</code></pre>
 <p>
-</div><div class="fragment">end_punc = oneOf(". ! ?")</p>
-<pre><code class=python>grammar  = word_list + end_punc
+</div><div class="fragment"></p>
+<pre><code class=python>end_punc = oneOf(". ! ?")
+grammar  = word_list + end_punc
 # Grabs the end symbol ["Hello", "World", "!"]</code></pre>
 <p>
-</div><div class="fragment">grammar = Group(word<em>list) + end</em>punc.suppress()</p>
-<pre><code class=python># Group and suppress [["Hello", "World"]]</code></pre>
+</div><div class="fragment"></p>
+<pre><code class=python>grammar = Group(word_list) + end_punc.suppress()
+# Group and suppress [["Hello", "World"]]</code></pre>
 <p>
 </div></p>
 </section><section class="vertical-slide" >
@@ -169,8 +172,8 @@ phrase  = Group(word_list) + (Literal(",") | end_punc).suppress()
 grammar = OneOrMore(phrase)
 print grammar.parseString(s2)</code></pre>
 <p>
-<div class="fragment"><h1>[['Hello', 'sir'], ['how', 'are', 'you', 'today']]</h1></p>
-<br>
+<div class="fragment"></p>
+<pre><code class=python># [['Hello', 'sir'], ['how', 'are', 'you', 'today']]</code></pre>
 <p>
 </div></p>
 </section>
@@ -257,8 +260,9 @@ print js
 (if (zerop x) 1
 (* x (factorial (- x 1)))))'''</code></pre>
 <p>
-<div class="fragment">from pyparsing import *</p>
-<pre><code class=python>alpha  = Word(alphas)
+<div class="fragment"></p>
+<pre><code class=python>from pyparsing import *
+alpha  = Word(alphas)
 operation = oneOf("+ * - /")
 number = Word(nums)
 argument = alpha | number | operation</code></pre>
@@ -279,8 +283,9 @@ print expr.parseString(raw)
 <h3><a href="code/postfix_calc.py">postfix_calc.py</a></h3>Evalute the string as a mathematical expression</p>
 <pre><code class=python>s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"</code></pre>
 <p>
-<div class="fragment">from pyparsing import *</p>
-<pre><code class=python>expr = Forward()
+<div class="fragment"></p>
+<pre><code class=python>from pyparsing import *
+expr = Forward()
 number    = Word(nums)("value")
 operation = oneOf("+ * ^ -")
 LP, RP = Literal("(").suppress(), Literal(")").suppress()
@@ -447,8 +452,8 @@ The code for this _particular slide_ looks like this:</code></pre>
 </section>
     </div></div>
 
-    <script src="js/reveal.js/lib/js/head.min.js"></script>
-    <script src="js/reveal.js/js/reveal.min.js"></script>
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
 
     <script>
       // Full list of configuration options available here:
@@ -460,19 +465,19 @@ The code for this _particular slide_ looks like this:</code></pre>
       // available themes are in reveal.js/css/theme
 
       // Optional libraries used to extend on reveal.js
-      dependencies: [ { src: 'js/reveal.js/lib/js/classList.js', condition: function() { 
+      dependencies: [ { src: 'reveal.js/lib/js/classList.js', condition: function() { 
     return !document.body.classList; } },
 
-{ src: 'js/reveal.js/plugin/markdown/showdown.js', condition: function() { 
+{ src: 'reveal.js/plugin/markdown/showdown.js', condition: function() { 
     return !!document.querySelector( '[data-markdown]' ); } },
 
-{ src: 'js/reveal.js/plugin/markdown/markdown.js', condition: function() { 
+{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { 
     return !!document.querySelector( '[data-markdown]' ); } },
 
-{ src: 'js/reveal.js/plugin/highlight/highlight.js', async: true, callback: 
+{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: 
   function() { hljs.initHighlightingOnLoad(); } },
 
-{ src: 'js/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: 
+{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: 
   function() { return !!document.body.classList; } },
  ]
 
