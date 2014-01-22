@@ -17,6 +17,7 @@ commit:
 	@-make push
 
 push:
+	make
 	git status
 	git add index.html
 	git add css

@@ -36,7 +36,7 @@
 
     <div class="reveal"><div class="slides">
 	<section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <link rel="stylesheet" href="js/reveal.js/css/theme/beige.css" id="theme">
 <br>
 <p>
@@ -46,7 +46,7 @@
 <strong><a href="http://thoppe.github.io/">Travis Hoppe</a></strong><br><em><a href="http://www.meetup.com/Data-Wranglers-DC/">DC Data Wranglers</a></em> / <a href="https://github.com/thoppe/DCDW_pres_feb_2014">(deck source)</a></p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h2>What is parsing?</h2></p>
 <br>
@@ -56,7 +56,7 @@
 <br>
 <p>
 Analying a log file<br>Extracting data from a webpage<br>Sanitizing input from untrusted sources</p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h2>don't do it!</h2></p>
 <br>
@@ -68,7 +68,7 @@ It's easier to construct/maintain<br>a mini-lanuage. Really!</p>
 <br>
 <p>
 Traditional utilites: regex, lex, yacc.</p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h2>Example problems</h2></p>
 <br>
@@ -79,7 +79,7 @@ Traditional utilites: regex, lex, yacc.</p>
 <h3>Hard:</h3>HTML, recursive descent parsers<br>(mathematical expressions, pdf's, meta-font, LISP)</p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h2>Lifecycle of code</h2></p>
 <br>
@@ -90,13 +90,13 @@ Traditional utilites: regex, lex, yacc.</p>
 <br>
 <p>
 <em>Which is more important?</em></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 This is not NLP (natural language processing)<br>This is a <strong>context-free</strong> grammar.<div class="fragment"><br></p>
 <br>
 <p>
 <h3>One morning I shot an elephant in my pajamas.</h3></div><div class="fragment"><h3>How he got into my pajamas I'll never know.</h3><em>(sometimes context matters!)</em><br></div></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h1>Backus-Naur Form</h1></p>
 <br>
@@ -111,13 +111,13 @@ This is not NLP (natural language processing)<br>This is a <strong>context-free<
 <zip-part> ::= <town-name> "," <state-code> <ZIP-code> <EOL></code></pre>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h2>Why not regex?</h2><em><a href="http://www.codinghorror.com/blog/2008/06/regular-expressions-now-you-have-two-problems.html">Now you have two problems</a></em></p>
 <br>
 <p>
 "<em>Regular expressions are like a particularly spicy hot sauce, to be used in moderation and with restraint only when appropriate. If you drench your plate in hot sauce, you're going to be very, very sorry later.</em>" - Jeff Atwood</p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 Validating a phone number (<em>reasonable regex</em>)</p>
 <pre><code class=python>"^\(*\d{3}\)*( |-)*\d{3}( |-)*\d{4}$"</code></pre>
@@ -128,7 +128,7 @@ Validating RFC822 email addresses (<em>have fun!</em>)</p>
 </code></pre>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h1>Pyparsing</h1>A free, pure python drop-in <a href="http://pyparsing.wikispaces.com/">parsing module</a>. Allows you to write/maintain the grammar, <em>abstracted</em> from the parser.</p>
 <a href=http://shop.oreilly.com/product/9780596514235.do><img class="" src="book.jpg" height="300px"></a>
@@ -136,7 +136,7 @@ Validating RFC822 email addresses (<em>have fun!</em>)</p>
 Examples in this talk adapted from the <a href="http://shop.oreilly.com/product/9780596514235.do">book</a>.</p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h3><a href="code/hello_world.py">hello_world.py</a></h3>Build the grammar iteratively, bottom up</p>
 <pre><code class=python>from pyparsing import *
@@ -146,22 +146,19 @@ grammar = word
 print grammar.parseString(s)
 # Only grabs "Hello"</code></pre>
 <p>
-<div class="fragment"></p>
-<pre><code class=python>word_list = OneOrMore(word)
-grammar   = word_list
+<div class="fragment">word_list = OneOrMore(word)</p>
+<pre><code class=python>grammar   = word_list
 # Now we get a list ["Hello", "World"]</code></pre>
 <p>
-</div><div class="fragment"></p>
-<pre><code class=python>end_punc = oneOf(". ! ?")
-grammar  = word_list + end_punc
+</div><div class="fragment">end_punc = oneOf(". ! ?")</p>
+<pre><code class=python>grammar  = word_list + end_punc
 # Grabs the end symbol ["Hello", "World", "!"]</code></pre>
 <p>
-</div><div class="fragment"></p>
-<pre><code class=python>grammar = Group(word_list) + end_punc.suppress()
-# Group and suppress [["Hello", "World"]]</code></pre>
+</div><div class="fragment">grammar = Group(word<em>list) + end</em>punc.suppress()</p>
+<pre><code class=python># Group and suppress [["Hello", "World"]]</code></pre>
 <p>
 </div></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h3><a href="code/hello_world.py">hello_world.py</a></h3></p>
 <br>
@@ -172,13 +169,13 @@ phrase  = Group(word_list) + (Literal(",") | end_punc).suppress()
 grammar = OneOrMore(phrase)
 print grammar.parseString(s2)</code></pre>
 <p>
-<div class="fragment"></p>
-<pre><code class=python># [['Hello', 'sir'], ['how', 'are', 'you', 'today']]</code></pre>
+<div class="fragment"><h1>[['Hello', 'sir'], ['how', 'are', 'you', 'today']]</h1></p>
+<br>
 <p>
 </div></p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h3><a href="code/records.py">records.py</a></h3>Take the raw data with missing values</p>
 <pre><code class=python>sue
@@ -196,7 +193,7 @@ Rudolfo Alphonzo Raffaelo Pierre di Valentina D'Antonguolla 31</code></pre>
  { "age": 31,   "name": "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla" }]</code></pre>
 <p>
 </div></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h3><a href="code/records.py">records.py</a></h3>The data guides the grammar</p>
 <pre><code class=python>sue
@@ -216,7 +213,7 @@ EOL = LineEnd().suppress()
 
 record = full_name + Optional(age) + EOL
 record_list = OneOrMore(record | EOL)</code></pre>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h3><a href="code/records.py">records.py</a></h3>Our first attempt gives</p>
 <pre><code class=python>print record_list.parseString(data)
@@ -233,7 +230,7 @@ Format the results</p>
   return {'name':name, 'age':age}
 
 record.setParseAction(clean_record)</code></pre>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h3><a href="code/records.py">records.py</a></h3>Proper type casting, string formating, and a dictionary!</p>
 <pre><code class=python>sol = record_list.parseString(data)
@@ -253,16 +250,15 @@ print js
 # { "age": 31, "name": "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla" }]</code></pre>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h3><a href="code/recursive.py">recursive.py</a></h3></p>
 <pre><code class=python>raw ='''(defun factorial (x)
 (if (zerop x) 1
 (* x (factorial (- x 1)))))'''</code></pre>
 <p>
-<div class="fragment"></p>
-<pre><code class=python>from pyparsing import *
-alpha  = Word(alphas)
+<div class="fragment">from pyparsing import *</p>
+<pre><code class=python>alpha  = Word(alphas)
 operation = oneOf("+ * - /")
 number = Word(nums)
 argument = alpha | number | operation</code></pre>
@@ -278,14 +274,13 @@ print expr.parseString(raw)
 </div></p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
-<h3><a href="code/prefix_calc.py">prefix_calc.py</a></h3>Evalute the string as a mathematical expression</p>
+<h3><a href="code/postfix_calc.py">postfix_calc.py</a></h3>Evalute the string as a mathematical expression</p>
 <pre><code class=python>s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"</code></pre>
 <p>
-<div class="fragment"></p>
-<pre><code class=python>from pyparsing import *
-expr = Forward()
+<div class="fragment">from pyparsing import *</p>
+<pre><code class=python>expr = Forward()
 number    = Word(nums)("value")
 operation = oneOf("+ * ^ -")
 LP, RP = Literal("(").suppress(), Literal(")").suppress()
@@ -298,9 +293,9 @@ print expr.parseString(s)
 #[[[[[['3', '4', '+'], '9', '*'], ['8', '9', '+'], '*'], '1050', '-'], '2', '^']]</code></pre>
 <p>
 </div></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
-<h3><a href="code/prefix_calc.py">prefix_calc.py</a></h3>Convert numbers into integers</p>
+<h3><a href="code/postfix_calc.py">postfix_calc.py</a></h3>Convert numbers into integers</p>
 <pre><code class=python>number.setParseAction(lambda x:int(x["value"]))</code></pre>
 <br>
 <p>
@@ -317,9 +312,9 @@ def apply(tokens):
     return actions[op](a,b)
 
 expr.setParseAction(apply)</code></pre>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
-<h3><a href="code/prefix_calc.py">prefix_calc.py</a></h3></p>
+<h3><a href="code/postfix_calc.py">postfix_calc.py</a></h3></p>
 <pre><code class=python>s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"</code></pre>
 <br>
 <p>
@@ -338,15 +333,15 @@ Evaluating 21 ^ 2 = 441
 Final value: 441</code></pre>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h3>Why pyparsing?</h3>Grammar specification is a natural-looking part of the python<br>Class/function names are easier than specialized typography<br>Easy-to-read and familiar in style<br>Processing <em>during</em> parsing<br>Whitespace is <em>optional</em><div class="fragment"><br><h3>Why not?</h3>Slow for complex grammars (memoization helps)<br>Specialized libraries may be better (xml, html)<br><em>Sometimes</em> overkill (<code>str.split</code>?)<br></div></p>
 </section>
 </section><section class="vertical-stack">
-<section class="vertical-slide">
+<section class="vertical-slide" >
 <p>
 <h1>Thanks, you.</h1></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <div display='inline' align='left'><h2>How were these slides made?</h2></div></p>
 <br>
@@ -394,7 +389,7 @@ Final value: 441</code></pre>
 <br>
 <p>
 <div display='inline' align='left'><h3>Markdown to HTML: <a href="https://bitbucket.org/hooked/markdown_latex_easypres">easy_pres.py</a></h3></div><div display='inline' align='left'><em> (uses pyparsing to write a talk about pyparsing)</em></div></p>
-</section><section class="vertical-slide">
+</section><section class="vertical-slide" >
 <p>
 <h2>How does it work?</h2></p>
 <br>
