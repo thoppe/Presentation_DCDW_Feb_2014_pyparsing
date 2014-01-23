@@ -90,12 +90,12 @@ Validating a phone number (_reasonable regex_)
     "^\(*\d{3}\)*( |-)*\d{3}( |-)*\d{4}$"
 
 Validating RFC822 email addresses (_have fun!_)
-{"include_code":"badregex.txt"}
+{"include_code":"code/badregex.txt"}
 
 ====
 # Pyparsing
 A free, pure python drop-in [parsing module](http://pyparsing.wikispaces.com/). Allows you to write/maintain the grammar, _abstracted_ from the parser.
-!(book.jpg)[http://shop.oreilly.com/product/9780596514235.do]<<height:300px>>
+!(images/book.jpg)[http://shop.oreilly.com/product/9780596514235.do]<<height:300px>>
  Examples in this talk adapted from the [book](http://shop.oreilly.com/product/9780596514235.do).
 
 ====
