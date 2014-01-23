@@ -25,9 +25,9 @@ Sanitizing input from untrusted sources
 Write the *grammar* not the *parser*!
 
 It's easier to construct/maintain 
-a mini-lanuage. Really!
+a mini-language. Really!
 
-Traditional utilites: regex, lex, yacc.
+Traditional utilities: regex, lex, yacc.
 
 ====*
 
@@ -197,7 +197,7 @@ Format the results
 	  
 ====*
 ### [records.py](code/records.py) 
-Proper type casting, string formating, and a dictionary!
+Proper type casting, string formatting, and a dictionary!
     sol = record_list.parseString(data)
     print sol    	
     # [{'age': 31, 'name': 'Sue Travis Hoppe'}, {'age': 42, 'name': 'Marky Mark'}, {'age': 31, 'name': "James Earl Jones Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla"}]
@@ -231,7 +231,7 @@ Pretty-print the results in JSON
 ====+
 The expression is a recursive grammar!
 	expr = Forward()
-	LP, RP = Literal("(").suppress(), Literal(")").suppress()
+	LP,RP = map(Suppress, "()")
 	expr << (argument | Group(LP + ZeroOrMore(expr) + RP))
 	
 	print expr.parseString(raw)	
@@ -271,7 +271,7 @@ Apply a function depending on the symbol
 		a,b,op = tokens[0]
         val = actions[op](a,b)
         print "Evaluating {} {} {} = {}".format(a,op,b,val)
-        return actions[op](a,b)
+        return val
 	
     expr.setParseAction(apply)
 
@@ -291,6 +291,19 @@ Print statements help debug (use [logging](http://docs.python.org/2/library/logg
 	Evaluating 1071 - 1050 = 21
 	Evaluating 21 ^ 2 = 441
 	Final value: 441
+
+====*
+
+### [postfix_calc.py](code/postfix_calc.py)
+
+Extending the functionality is easy!
+
+	actions["%"]      = lambda a % b
+	actions["choose"] = scipy.misc.comb(a,b)
+
+
+With a little work, we could make use of unary operators, 
+arbitrary length inputs, and floats!
 
 ====
 

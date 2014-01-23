@@ -26,7 +26,7 @@ def apply(tokens):
     a,b,op = tokens[0]
     val = actions[op](a,b)
     print "Evaluating {} {} {} = {}".format(a,op,b,val)
-    return actions[op](a,b)
+    return val
 
 
 expr.setParseAction(apply)
