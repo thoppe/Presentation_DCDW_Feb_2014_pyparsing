@@ -324,7 +324,7 @@ _Sometimes_ overkill (`str.split`?)
 
 ----
 
-###|Markdown to HTML: [easy_pres.py](https://bitbucket.org/hooked/markdown_latex_easypres)
+###|Markdown to HTML: [md2reveal.py](https://github.com/thoppe/md2reveal)
 |_ (uses pyparsing to write a talk about pyparsing)_
 
 ====*
