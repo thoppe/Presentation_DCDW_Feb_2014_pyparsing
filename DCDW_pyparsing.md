@@ -200,7 +200,7 @@ Format the results
 Proper type casting, string formatting, and a dictionary!
     sol = record_list.parseString(data)
     print sol    	
-    # [{'age': 31, 'name': 'Sue Travis Hoppe'}, {'age': 42, 'name': 'Marky Mark'}, {'age': 31, 'name': "James Earl Jones Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla"}]
+    # [{'age': None, 'name': 'Sue'}, {'age': 31, 'name': 'Travis Hoppe'}, {'age': 42, 'name': 'Marky Mark'}, {'age': None, 'name': 'James Earl Jones'}, {'age': 31, 'name': "Rudolfo Alphonzo Raffaelo Pierre Di Valentina D'Antonguolla"}]
 
 Pretty-print the results in JSON
     import json
@@ -298,8 +298,8 @@ Print statements help debug (use [logging](http://docs.python.org/2/library/logg
 
 Extending the functionality is easy!
 
-	actions["%"]      = lambda a % b
-	actions["choose"] = scipy.misc.comb(a,b)
+	actions["%"]      = lambda a,b: a%b
+	actions["choose"] = scipy.misc.comb
 
 
 With a little work, we could make use of unary operators, 
