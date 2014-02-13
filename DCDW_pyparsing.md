@@ -11,10 +11,10 @@ _[DC Data Wranglers](http://www.meetup.com/Data-Wranglers-DC/)_ / [(deck source)
 ## What is parsing?
 
 _syntactic analysis of symbols_
-_according to a formal gramar_
+_according to a formal grammar_
 
 
-Analying a log file
+Analyzing a log file
 Extracting data from a webpage
 Sanitizing input from untrusted sources
 
@@ -102,7 +102,7 @@ A free, pure python drop-in [parsing module](http://pyparsing.wikispaces.com/). 
 ### [hello_world.py](code/hello_world.py)
 Build the grammar iteratively, bottom up
     from pyparsing import *
-    s = "Hello world!"
+    s = "Hello World!"
     word = Word(alphas)
     grammar = word
     print grammar.parseString(s)
@@ -239,7 +239,7 @@ The expression is a recursive grammar!
 
 ====
 ### [postfix_calc.py](code/postfix_calc.py)
-Evalute the string as a mathematical expression
+Evaluate the string as a mathematical expression
 	s = "((((3 4 +) 9 *) (8 9 +) *) 1050 -) 2 ^)"
 
 ====+
