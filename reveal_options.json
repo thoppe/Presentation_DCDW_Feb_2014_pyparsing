@@ -1,8 +1,8 @@
 {
-  "height": 700, 
+  "height": 900, 
   "history": "true", 
   "margin": 0.05, 
   "maxScale": 1.2, 
   "minScale": 0.2, 
-  "width": 960
+  "width": 1200
 }
